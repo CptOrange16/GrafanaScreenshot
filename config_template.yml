@@ -1,0 +1,10 @@
+browser_path: YOUR_BROWSER_PATH #E.g for ubuntu /usr/bin/chromium-browser
+browser_driver_path: YOUR_BROWSER_DRIVER_PATH #E.g for ubuntu /usr/lib/chromium-browser/chromedriver
+grafana_user: YOUR_GRAFANA_USER
+grafana_password: YOUR_GRAFANA_PASSWORD
+bot_api_token: YOUR_API_TOKEN
+sleep: 7 #to delay screenshots for slow dashboards
+
+dashboards:
+  my_dashboard_1: URL
+  my_dashboard_2: URL
