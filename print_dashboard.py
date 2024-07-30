@@ -2,8 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.chrome.service import Service
-
+import chromedriver_binary
 import time
 import sys
 
@@ -30,16 +29,14 @@ def save_screenshot(driver, path, sleep_time):
     driver.save_screenshot(path)
     
     
-def get_screenshot(url, file_path, browser_path, browser_driver_path, user, password, sleep_time):
+def get_screenshot(url, file_path, user, password, sleep_time):
 
     browser_options = webdriver.ChromeOptions()
     browser_options.add_argument("--headless")
     browser_options.add_argument("force-device-scale-factor=2.0")
-    browser_options.binary_location = browser_path
-    service = Service(executable_path=browser_driver_path)
-    driver = webdriver.Chrome(service=service, options=browser_options)
+    browser_options.add_argument("--remote-debugging-pipe")
+    driver = webdriver.Chrome(options=browser_options)
     
-
     driver.set_window_size(1920, 1080)
     driver.get(url)
     

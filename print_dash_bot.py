@@ -45,8 +45,8 @@ async def get_screencap(update: Update, context: ContextTypes.DEFAULT_TYPE) -> N
     
     try:
         url = all_dashboards[dashboard] + f"&from={time_range}&to=now"
-        get_screenshot(url, "./image.png", context.bot_data['browser_path'], context.bot_data['browser_driver_path'], 
-                       context.bot_data['grafana_user'], context.bot_data['grafana_password'], context.bot_data['sleep'])
+        get_screenshot(url, "./image.png", context.bot_data['grafana_user'], 
+                       context.bot_data['grafana_password'], context.bot_data['sleep'])
     except Exception as e:
         print(e)
         await update.message.reply_text("Failed to generate image. Try again.")
